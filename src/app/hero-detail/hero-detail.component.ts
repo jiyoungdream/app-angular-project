@@ -25,7 +25,7 @@ export class HeroDetailComponent implements OnInit {
   ) { }
 
   goBack() : void {
-    this._location.back(); 
+    this._location.back();
   }
 
   ngOnInit(): void {

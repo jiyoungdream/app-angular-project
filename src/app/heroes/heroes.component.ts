@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Hero } from '../hero';
 
 import { HeroService } from '../hero.service';
+import { CommonHttpService } from '../common-http.service';
+
+import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -13,6 +16,7 @@ export class HeroesComponent implements OnInit {
 
   constructor(
     private heroservice : HeroService,
+    private commonHttp : CommonHttpService,
     private _router : Router
   ){}
 
@@ -29,6 +33,21 @@ export class HeroesComponent implements OnInit {
   ngOnInit() : void {
     this.heroservice.getHeroes()
     .then(result => this.heroes = result);
-  }
 
+    // this.commonHttp.getList(function(data) {
+    //   console.log("111" + JSON.stringify(JSON.stringify(data)));
+    // });
+    let newHero = {
+      id:22,
+      "name":"lll"
+    };
+
+    this.heroservice.pushHero(newHero);
+
+    console.log(this.commonHttp.getListo().subscribe(
+      comments => {
+        console.log("333" + JSON.stringify(comments));
+      })
+    );
+  }
 }
