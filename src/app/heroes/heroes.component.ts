@@ -34,14 +34,7 @@ export class HeroesComponent implements OnInit {
     this.heroservice.getHeroes()
     .then(result => this.heroes = result);
 
-    // this.commonHttp.getList(function(data) {
-    //   console.log("111" + JSON.stringify(JSON.stringify(data)));
-    // });
-    let newHero = {
-      id:22,
-      "name":"lll"
-    };
-
+    let newHero = new Hero(33, "kkkk");
     this.heroservice.pushHero(newHero);
 
     console.log(this.commonHttp.getListo().subscribe(
