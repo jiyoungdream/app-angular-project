@@ -32,7 +32,7 @@ export class CommonHttpService {
      // });
   }
 
-  getListo() : Observable<string> {
+  getListo() : Observable<JSON> {
     return this.http.get('http://localhost:3000/getlist')
             .map(response => response.json());
 

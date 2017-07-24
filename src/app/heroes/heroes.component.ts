@@ -37,10 +37,10 @@ export class HeroesComponent implements OnInit {
     let newHero = new Hero(33, "kkkk");
     this.heroservice.pushHero(newHero);
 
-    console.log(this.commonHttp.getListo().subscribe(
-      comments => {
-        console.log("333" + JSON.stringify(comments));
-      })
-    );
+    this.commonHttp.getListo()
+    .subscribe(
+      result => {
+        console.log("333" + JSON.stringify(result));
+      });
   }
 }
